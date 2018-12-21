@@ -1,0 +1,25 @@
+{
+  "name": "survey-sorter",
+  "version": "1.0.0",
+  "description": "A command line tool to sum and rank survey results",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers babel-register",
+    "test:repl": "mocha debug --compilers babel-register"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ]
+  },
+  "bin": {
+    "sort": "./index.js"
+  },
+  "author": "Eric Schoettle",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "mocha": "^5.2.0"
+  }
+}
