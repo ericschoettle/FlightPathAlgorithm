@@ -99,6 +99,15 @@ describe('Response', function() {
       ]);
       assert.equal(rankedItems, '1. Banana Cabana, 1 pt\n2. Grape Escape, 0 pts');
     });
+    it('should display ties as the same rank', function() {
+      let rankedItems = Item.format([
+        {name: 'Banana Cabana', points: 10 },
+        {name: 'Grape Escape', points: 8 },
+        {name: 'Guava Java', points: 7 },
+        {name: 'Star Fruit Salute', points: 7 },
+      ]);
+      assert.equal(rankedItems, '1. Banana Cabana, 10 pts\n2. Grape Escape, 8 pts\n3. Guava Java, 7 pts\n3. Star Fruit Salute, 7 pts');
+    });
   });
 });
 
@@ -107,7 +116,7 @@ describe('processFile', function() {
     let result = processFile(
       "Banana Cabana 1\nGrape Escape 2\nStar Fruit Salute 3\nGuava Java 4\nBlackberry Fairy 5\nGuava Java 1\nGrape Escape 2\nStar Fruit Salute 3\nBlackberry Fairy 4\nBanana Cabana 5\nBanana Cabana 1\nStar Fruit Salute 2\nGrape Escape 3\nGuava Java 4\nBlackberry Fairy 5"
       );
-      assert.equal(result, "1. Banana Cabana, 10 pts\n2. Grape Escape, 8 pts\n3. Guava Java, 7 pts\n4. Star Fruit Salute, 7 pts\n5. Blackberry Fairy, 1 pt");
+      assert.equal(result, "1. Banana Cabana, 10 pts\n2. Grape Escape, 8 pts\n3. Guava Java, 7 pts\n3. Star Fruit Salute, 7 pts\n5. Blackberry Fairy, 1 pt");
   });
 });
 

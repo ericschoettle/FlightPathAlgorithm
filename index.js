@@ -33,8 +33,17 @@ class Item {
   }
 
   static format(rankedItems) {
-    const strings = rankedItems.map((item, index) => {
-      return `${index + 1}. ${item.name}, ${item.points} ${(item.points === 1) ? 'pt' : 'pts'}`
+    const strings = [];
+    let tieTest = {points: null, rank: null}
+    rankedItems.forEach((item, index) => {
+      let rank
+      if (item.points === tieTest.points) {
+        rank = tieTest.rank;
+      } else {
+        rank = index + 1;
+        tieTest = {points: item.points, rank: rank}
+      }
+      strings.push(`${rank}. ${item.name}, ${item.points} ${(item.points === 1) ? 'pt' : 'pts'}`);
     })
     return strings.join('\n')
   }
@@ -86,7 +95,7 @@ fs.readFile(inputFileName, 'utf8', (err, data) => {
   } else {
     console.log(`Processing ${filepath}/${inputFileName}`)
     const processedFile = processFile(data);
-    fs.writeFile('results.txt', processedFile, 'utf8', err => {
+    fs.writeFile(outputFileName, processedFile, 'utf8', err => {
       if (err) {
         console.log(`Error writing file: ${err}`)
       } else {
