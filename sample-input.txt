@@ -11,5 +11,5 @@ Banana Cabana 5 2.5
 Banana Cabana 1 5.0
 Star Fruit Salute 2 4.5
 Grape Escape 3 4.0
-Guava Java 4 2.0
+Guava Java 4 3.5
 Blackberry Fairy 5 1.0

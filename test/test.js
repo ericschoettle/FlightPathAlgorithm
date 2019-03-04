@@ -1,5 +1,5 @@
 var assert = require('assert');
-var { processFile, Item, Response }= require('../index');
+var { processFile, Item, Response } = require('../index');
 
 describe('Item', function() {
   describe('#addPoints()', function() {
@@ -24,7 +24,17 @@ describe('Item', function() {
         {name: 'name1', points: 0 }
       ]);
     });
-    it('should rank by length of name (ascending) when points are the same', function() {
+    it('should rank items in descending order by values when points are the same', function() {
+      let rankedItems = Item.rank({
+        testItem1: {name: 'name1', points: 1, value: 0 }, 
+        testItem2: {name: 'name2', points: 1, value: 1 }
+      });
+      assert.deepEqual(rankedItems, [
+        {name: 'name2', points: 1, value: 1 },
+        {name: 'name1', points: 1, value: 0 }
+      ]);
+    });
+    it('should rank by length of name (ascending) when points and values are the same', function() {
       let rankedItems = Item.rank({
         testItem1: {name: 'long name', points: 1 }, 
         testItem2: {name: 'name', points: 1 }
