@@ -3,7 +3,7 @@
   * Using Terminal or your favorite bash shell, clone from github with `git clone `
   * To install the grouping algorithm, run `npm install`
   * To Install QGIS toolbox, open QGIS, open the processing toolbox, click on the python logo, and select 'create new script'
-  * * Copy and paste the contents of AzimuthsFromShapefiles.py, and save with the same name. 
+    * Copy and paste the contents of AzimuthsFromShapefiles.py, and save with the same name. 
 
 
 ## Use
