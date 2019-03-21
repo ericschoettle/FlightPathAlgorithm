@@ -1,14 +1,14 @@
 {
-  "name": "surveysorter",
+  "name": "group-missions",
   "version": "1.0.0",
-  "description": "A command line tool to sum and rank survey results",
-  "main": "index.js",
+  "description": "Groups missions into flights based on min/max azimuth of each mission and number of drones",
+  "main": "groupMissions.js",
   "scripts": {
     "test": "mocha --compilers babel-register",
     "test:repl": "mocha debug --compilers babel-register"
   },
   "bin": {
-    "sortsurveys": "./index.js"
+    "groupmissions": "./groupMissions.js"
   },
   "author": "Eric Schoettle",
   "license": "ISC",
@@ -16,5 +16,9 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "csv": "^5.1.1",
+    "xlsx": "^0.14.1"
   }
 }
